@@ -60,4 +60,4 @@ Conferir item por item no link da Vercel.
 - App criado e `npm run build` e `npm run lint` passando.
 - SQL em `supabase/schema.sql`, mostrado e aguardando confirmação. Ainda não aplicado.
 - Variáveis de ambiente do Supabase ainda não criadas na Vercel nem em `.env.local`.
-- Código ainda não enviado ao GitHub.
+- Código enviado ao GitHub (branch main). A Vercel publica a cada push; sem as variáveis de ambiente e sem as tabelas, o site mostra "Configuração pendente".
