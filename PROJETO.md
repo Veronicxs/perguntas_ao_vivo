@@ -30,16 +30,16 @@ Stack: Next.js (App Router) com TypeScript e Tailwind, banco no Supabase e deplo
 Conferir item por item no link da Vercel.
 
 - [ ] Qualquer pessoa, sem login, envia uma pergunta de até 200 caracteres
-- [ ] Perguntas vazias ou com mais de 200 caracteres não são aceitas
+- [ ] Perguntas vazias ou com mais de 200 caracteres não são aceitas (validado no banco; falta testar no navegador)
 - [ ] Qualquer pessoa vota nas perguntas dos outros
-- [ ] Um mesmo navegador só vota uma vez por pergunta (id anônimo no localStorage)
+- [ ] Um mesmo navegador só vota uma vez por pergunta (id anônimo no localStorage) (validado no banco; falta testar no navegador)
 - [ ] A lista fica ordenada por votos (maior primeiro)
 - [ ] Em dois navegadores abertos, uma pergunta ou voto novo aparece no outro sem recarregar a página
-- [ ] Tabelas questions e votes criadas no Supabase com RLS ligado e políticas explícitas
-- [ ] Botão fixo "Equipe" no canto inferior direito de todas as páginas, abrindo modal com Nome (Faculdade)
+- [x] Tabelas questions e votes criadas no Supabase com RLS ligado e políticas explícitas
+- [ ] Botão fixo "Equipe" no canto inferior direito de todas as páginas, abrindo modal com Nome (Faculdade) (botão presente na página publicada; falta abrir o modal no navegador)
 - [ ] A tela funciona bem no celular
-- [ ] npm run build sem erros
-- [ ] Chaves do Supabase só em variáveis de ambiente (.env.local e Vercel), nunca no código
+- [x] npm run build sem erros
+- [x] Chaves do Supabase só em variáveis de ambiente (.env.local e Vercel), nunca no código
 
 ## Como rodar
 
@@ -61,4 +61,6 @@ Conferir item por item no link da Vercel.
 - SQL de `supabase/schema.sql` confirmado e aplicado no projeto Supabase `perguntas_ao_vivo` (região sa-east-1). Testado no banco: voto soma 1, voto repetido é rejeitado, pergunta com mais de 200 caracteres é rejeitada, `votes` não é legível direto.
 - Projeto `perguntas_ao_vivo` criado na Vercel e ligado a este repositório (branch main publica em produção, outras branches geram Preview).
 - `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY` cadastradas na Vercel (Production e Preview) e em `.env.local`.
-- Falta conferir a lista "Pronto quando" no link publicado.
+- Produção publicada em https://perguntasaovivo.vercel.app. A página carrega com o Supabase configurado e o botão "Equipe" aparece.
+- Atenção: o projeto na Vercel está com a proteção por login (Vercel Authentication) ligada, então quem não tem conta Vercel é barrado. Para o evento ela precisa ser desligada.
+- Falta conferir no navegador os itens restantes de "Pronto quando" (enviar pergunta, votar, Realtime em dois navegadores, modal da Equipe, celular).
