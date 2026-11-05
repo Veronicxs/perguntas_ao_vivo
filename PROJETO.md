@@ -43,7 +43,7 @@ Conferir item por item no link da Vercel.
 
 ## Como rodar
 
-1. Aplicar `supabase/schema.sql` no projeto Supabase (somente após a confirmação do SQL).
+1. O `supabase/schema.sql` já foi aplicado no projeto Supabase `perguntas_ao_vivo`. Para outro projeto Supabase, rode esse arquivo no SQL Editor.
 2. Copiar `.env.example` para `.env.local` e preencher `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY` (chave anon/publishable; a service role nunca vai para o cliente).
 3. `npm install` e `npm run dev`.
 
@@ -58,6 +58,7 @@ Conferir item por item no link da Vercel.
 ## Status
 
 - App criado e `npm run build` e `npm run lint` passando.
-- SQL em `supabase/schema.sql`, mostrado e aguardando confirmação. Ainda não aplicado.
-- Variáveis de ambiente do Supabase ainda não criadas na Vercel nem em `.env.local`.
-- Código enviado ao GitHub (branch main). A Vercel publica a cada push; sem as variáveis de ambiente e sem as tabelas, o site mostra "Configuração pendente".
+- SQL de `supabase/schema.sql` confirmado e aplicado no projeto Supabase `perguntas_ao_vivo` (região sa-east-1). Testado no banco: voto soma 1, voto repetido é rejeitado, pergunta com mais de 200 caracteres é rejeitada, `votes` não é legível direto.
+- Projeto `perguntas_ao_vivo` criado na Vercel e ligado a este repositório (branch main publica em produção, outras branches geram Preview).
+- `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY` cadastradas na Vercel (Production e Preview) e em `.env.local`.
+- Falta conferir a lista "Pronto quando" no link publicado.
